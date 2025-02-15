@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { Calculator, type BinaryOperator, SafeAddition, ComputationResult } from '../../src';
+import { ConvoManager } from '../../src';
 
 // A Rust object
 const calculator = new Calculator();
@@ -28,7 +29,11 @@ const computation: ComputationResult = calculator
 // Unpack the bigint value into a string.
 const result = computation.value.toString();
 
+const convoManager = new ConvoManager('test');
+
+
 export default function App() {
+  convoManager.createNewGroup('test');
   return (
     <View style={styles.container}>
       <Text>Result: {result}</Text>

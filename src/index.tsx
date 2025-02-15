@@ -31,4 +31,3 @@ if (!initialized) {
 export default {
   foobar,
 };
-

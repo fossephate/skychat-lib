@@ -42,6 +42,7 @@ import {
   type UniffiRustCallStatus,
   type UnsafeMutableRawPointer,
   AbstractFfiConverterByteArray,
+  FfiConverterArrayBuffer,
   FfiConverterBool,
   FfiConverterDuration,
   FfiConverterInt32,
@@ -871,6 +872,133 @@ const FfiConverterTypeCalculator = new FfiConverterObject(
   uniffiTypeCalculatorObjectFactory
 );
 
+export interface ConvoManagerInterface {
+  createNewGroup(name: string): ArrayBuffer;
+}
+
+export class ConvoManager
+  extends UniffiAbstractObject
+  implements ConvoManagerInterface
+{
+  readonly [uniffiTypeNameSymbol] = 'ConvoManager';
+  readonly [destructorGuardSymbol]: UniffiRustArcPtr;
+  readonly [pointerLiteralSymbol]: UnsafeMutableRawPointer;
+  constructor(name: string) {
+    super();
+    const pointer = uniffiCaller.rustCall(
+      /*caller:*/ (callStatus) => {
+        return nativeModule().ubrn_uniffi_foobar_fn_constructor_convomanager_new(
+          FfiConverterString.lower(name),
+          callStatus
+        );
+      },
+      /*liftString:*/ FfiConverterString.lift
+    );
+    this[pointerLiteralSymbol] = pointer;
+    this[destructorGuardSymbol] =
+      uniffiTypeConvoManagerObjectFactory.bless(pointer);
+  }
+
+  public createNewGroup(name: string): ArrayBuffer {
+    return FfiConverterArrayBuffer.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_create_new_group(
+            uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+            FfiConverterString.lower(name),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  /**
+   * {@inheritDoc uniffi-bindgen-react-native#UniffiAbstractObject.uniffiDestroy}
+   */
+  uniffiDestroy(): void {
+    const ptr = (this as any)[destructorGuardSymbol];
+    if (ptr !== undefined) {
+      const pointer = uniffiTypeConvoManagerObjectFactory.pointer(this);
+      uniffiTypeConvoManagerObjectFactory.freePointer(pointer);
+      uniffiTypeConvoManagerObjectFactory.unbless(ptr);
+      delete (this as any)[destructorGuardSymbol];
+    }
+  }
+
+  static instanceOf(obj: any): obj is ConvoManager {
+    return uniffiTypeConvoManagerObjectFactory.isConcreteType(obj);
+  }
+}
+
+const uniffiTypeConvoManagerObjectFactory: UniffiObjectFactory<ConvoManagerInterface> =
+  {
+    create(pointer: UnsafeMutableRawPointer): ConvoManagerInterface {
+      const instance = Object.create(ConvoManager.prototype);
+      instance[pointerLiteralSymbol] = pointer;
+      instance[destructorGuardSymbol] = this.bless(pointer);
+      instance[uniffiTypeNameSymbol] = 'ConvoManager';
+      return instance;
+    },
+
+    bless(p: UnsafeMutableRawPointer): UniffiRustArcPtr {
+      return uniffiCaller.rustCall(
+        /*caller:*/ (status) =>
+          nativeModule().ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
+            p,
+            status
+          ),
+        /*liftString:*/ FfiConverterString.lift
+      );
+    },
+
+    unbless(ptr: UniffiRustArcPtr) {
+      ptr.markDestroyed();
+    },
+
+    pointer(obj: ConvoManagerInterface): UnsafeMutableRawPointer {
+      if ((obj as any)[destructorGuardSymbol] === undefined) {
+        throw new UniffiInternalError.UnexpectedNullPointer();
+      }
+      return (obj as any)[pointerLiteralSymbol];
+    },
+
+    clonePointer(obj: ConvoManagerInterface): UnsafeMutableRawPointer {
+      const pointer = this.pointer(obj);
+      return uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) =>
+          nativeModule().ubrn_uniffi_foobar_fn_clone_convomanager(
+            pointer,
+            callStatus
+          ),
+        /*liftString:*/ FfiConverterString.lift
+      );
+    },
+
+    freePointer(pointer: UnsafeMutableRawPointer): void {
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) =>
+          nativeModule().ubrn_uniffi_foobar_fn_free_convomanager(
+            pointer,
+            callStatus
+          ),
+        /*liftString:*/ FfiConverterString.lift
+      );
+    },
+
+    isConcreteType(obj: any): obj is ConvoManagerInterface {
+      return (
+        obj[destructorGuardSymbol] &&
+        obj[uniffiTypeNameSymbol] === 'ConvoManager'
+      );
+    },
+  };
+// FfiConverter for ConvoManagerInterface
+const FfiConverterTypeConvoManager = new FfiConverterObject(
+  uniffiTypeConvoManagerObjectFactory
+);
+
 export interface SafeAdditionInterface {
   perform(lhs: /*i64*/ bigint, rhs: /*i64*/ bigint) /*throws*/ : /*i64*/ bigint;
 }
@@ -1213,6 +1341,14 @@ function uniffiEnsureInitialized() {
     );
   }
   if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group() !==
+    44787
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_create_new_group'
+    );
+  }
+  if (
     nativeModule().ubrn_uniffi_foobar_checksum_method_safeaddition_perform() !==
     41639
   ) {
@@ -1234,6 +1370,14 @@ function uniffiEnsureInitialized() {
   ) {
     throw new UniffiInternalError.ApiChecksumMismatch(
       'uniffi_foobar_checksum_constructor_calculator_new'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_foobar_checksum_constructor_convomanager_new() !==
+    51625
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_constructor_convomanager_new'
     );
   }
   if (
@@ -1263,6 +1407,7 @@ export default Object.freeze({
     FfiConverterTypeCalculator,
     FfiConverterTypeComputationResult,
     FfiConverterTypeComputationState,
+    FfiConverterTypeConvoManager,
     FfiConverterTypeSafeAddition,
     FfiConverterTypeSafeDivision,
   },

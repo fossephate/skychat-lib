@@ -65,6 +65,23 @@ interface NativeModuleInterface {
     ptr: bigint,
     uniffi_out_err: UniffiRustCallStatus
   ): Uint8Array;
+  ubrn_uniffi_foobar_fn_clone_convomanager(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_foobar_fn_free_convomanager(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): void;
+  ubrn_uniffi_foobar_fn_constructor_convomanager_new(
+    name: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_foobar_fn_method_convomanager_create_new_group(
+    ptr: bigint,
+    name: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
   ubrn_uniffi_foobar_fn_clone_safeaddition(
     ptr: bigint,
     uniffi_out_err: UniffiRustCallStatus
@@ -111,9 +128,11 @@ interface NativeModuleInterface {
   ubrn_uniffi_foobar_checksum_method_calculator_calculate(): number;
   ubrn_uniffi_foobar_checksum_method_calculator_calculate_more(): number;
   ubrn_uniffi_foobar_checksum_method_calculator_last_result(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group(): number;
   ubrn_uniffi_foobar_checksum_method_safeaddition_perform(): number;
   ubrn_uniffi_foobar_checksum_method_safedivision_perform(): number;
   ubrn_uniffi_foobar_checksum_constructor_calculator_new(): number;
+  ubrn_uniffi_foobar_checksum_constructor_convomanager_new(): number;
   ubrn_uniffi_foobar_checksum_constructor_safeaddition_new(): number;
   ubrn_uniffi_foobar_checksum_constructor_safedivision_new(): number;
   ubrn_ffi_foobar_uniffi_contract_version(): number;
@@ -125,6 +144,10 @@ interface NativeModuleInterface {
     uniffi_out_err: UniffiRustCallStatus
   ): UniffiRustArcPtr;
   ubrn_uniffi_internal_fn_method_calculator_ffi__bless_pointer(
+    pointer: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): UniffiRustArcPtr;
+  ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
     pointer: bigint,
     uniffi_out_err: UniffiRustCallStatus
   ): UniffiRustArcPtr;

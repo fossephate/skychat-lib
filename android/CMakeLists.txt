@@ -26,7 +26,6 @@ include_directories(
 
 add_library(skychat-lib            SHARED
     ../cpp/skychat-lib.cpp
-    ../cpp/generated/foobar.cpp
     cpp-adapter.cpp
 )
 

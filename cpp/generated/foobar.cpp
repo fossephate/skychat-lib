@@ -130,6 +130,15 @@ void *uniffi_foobar_fn_method_calculator_calculate_more(
 RustBuffer
 uniffi_foobar_fn_method_calculator_last_result(void *ptr,
                                                RustCallStatus *uniffi_out_err);
+void *uniffi_foobar_fn_clone_convomanager(void *ptr,
+                                          RustCallStatus *uniffi_out_err);
+void uniffi_foobar_fn_free_convomanager(void *ptr,
+                                        RustCallStatus *uniffi_out_err);
+void *
+uniffi_foobar_fn_constructor_convomanager_new(RustBuffer name,
+                                              RustCallStatus *uniffi_out_err);
+RustBuffer uniffi_foobar_fn_method_convomanager_create_new_group(
+    void *ptr, RustBuffer name, RustCallStatus *uniffi_out_err);
 void *uniffi_foobar_fn_clone_safeaddition(void *ptr,
                                           RustCallStatus *uniffi_out_err);
 void uniffi_foobar_fn_free_safeaddition(void *ptr,
@@ -280,9 +289,11 @@ uint16_t uniffi_foobar_checksum_method_binaryoperator_perform();
 uint16_t uniffi_foobar_checksum_method_calculator_calculate();
 uint16_t uniffi_foobar_checksum_method_calculator_calculate_more();
 uint16_t uniffi_foobar_checksum_method_calculator_last_result();
+uint16_t uniffi_foobar_checksum_method_convomanager_create_new_group();
 uint16_t uniffi_foobar_checksum_method_safeaddition_perform();
 uint16_t uniffi_foobar_checksum_method_safedivision_perform();
 uint16_t uniffi_foobar_checksum_constructor_calculator_new();
+uint16_t uniffi_foobar_checksum_constructor_convomanager_new();
 uint16_t uniffi_foobar_checksum_constructor_safeaddition_new();
 uint16_t uniffi_foobar_checksum_constructor_safedivision_new();
 uint32_t ffi_foobar_uniffi_contract_version();
@@ -1985,6 +1996,51 @@ NativeFoobar::NativeFoobar(
             return this->cpp_uniffi_foobar_fn_method_calculator_last_result(
                 rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_foobar_fn_clone_convomanager"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(rt,
+                                    "ubrn_uniffi_foobar_fn_clone_convomanager"),
+          1,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this->cpp_uniffi_foobar_fn_clone_convomanager(rt, thisVal,
+                                                                 args, count);
+          });
+  props["ubrn_uniffi_foobar_fn_free_convomanager"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(rt,
+                                    "ubrn_uniffi_foobar_fn_free_convomanager"),
+          1,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this->cpp_uniffi_foobar_fn_free_convomanager(rt, thisVal,
+                                                                args, count);
+          });
+  props["ubrn_uniffi_foobar_fn_constructor_convomanager_new"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(
+              rt, "ubrn_uniffi_foobar_fn_constructor_convomanager_new"),
+          1,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this->cpp_uniffi_foobar_fn_constructor_convomanager_new(
+                rt, thisVal, args, count);
+          });
+  props["ubrn_uniffi_foobar_fn_method_convomanager_create_new_group"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(
+              rt, "ubrn_uniffi_foobar_fn_method_convomanager_create_new_group"),
+          2,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_foobar_fn_method_convomanager_create_new_group(
+                    rt, thisVal, args, count);
+          });
   props["ubrn_uniffi_foobar_fn_clone_safeaddition"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -2165,6 +2221,18 @@ NativeFoobar::NativeFoobar(
                 ->cpp_uniffi_foobar_checksum_method_calculator_last_result(
                     rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(rt, "ubrn_uniffi_foobar_checksum_method_"
+                                        "convomanager_create_new_group"),
+          0,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_foobar_checksum_method_convomanager_create_new_group(
+                    rt, thisVal, args, count);
+          });
   props["ubrn_uniffi_foobar_checksum_method_safeaddition_perform"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -2197,6 +2265,18 @@ NativeFoobar::NativeFoobar(
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this->cpp_uniffi_foobar_checksum_constructor_calculator_new(
                 rt, thisVal, args, count);
+          });
+  props["ubrn_uniffi_foobar_checksum_constructor_convomanager_new"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(
+              rt, "ubrn_uniffi_foobar_checksum_constructor_convomanager_new"),
+          0,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_foobar_checksum_constructor_convomanager_new(
+                    rt, thisVal, args, count);
           });
   props["ubrn_uniffi_foobar_checksum_constructor_safeaddition_new"] =
       jsi::Function::createFromHostFunction(
@@ -2268,6 +2348,19 @@ NativeFoobar::NativeFoobar(
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this
                 ->cpp_uniffi_internal_fn_method_calculator_ffi__bless_pointer(
+                    rt, thisVal, args, count);
+          });
+  props["ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(
+              rt,
+              "ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer"),
+          1,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
                     rt, thisVal, args, count);
           });
   props["ubrn_uniffi_internal_fn_method_safeaddition_ffi__bless_pointer"] =
@@ -2387,6 +2480,22 @@ NativeFoobar::cpp_uniffi_internal_fn_method_calculator_ffi__bless_pointer(
     auto pointer = reinterpret_cast<void *>(static_cast<uintptr_t>(p));
     RustCallStatus status = {0};
     uniffi_foobar_fn_free_calculator(pointer, &status);
+  };
+  auto ptrObj =
+      std::make_shared<uniffi_jsi::DestructibleObject>(pointer, destructor);
+  auto obj = jsi::Object::createFromHostObject(rt, ptrObj);
+  return jsi::Value(rt, obj);
+}
+jsi::Value
+NativeFoobar::cpp_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  auto pointer =
+      uniffi_jsi::Bridging<uint64_t>::fromJs(rt, callInvoker, args[0]);
+  auto static destructor = [](uint64_t p) {
+    auto pointer = reinterpret_cast<void *>(static_cast<uintptr_t>(p));
+    RustCallStatus status = {0};
+    uniffi_foobar_fn_free_convomanager(pointer, &status);
   };
   auto ptrObj =
       std::make_shared<uniffi_jsi::DestructibleObject>(pointer, destructor);
@@ -2536,6 +2645,58 @@ jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_calculator_last_result(
       uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
   auto value = uniffi_foobar_fn_method_calculator_last_result(
       uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
+  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
+                                                       args[count - 1]);
+
+  return uniffi::foobar::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
+}
+jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_clone_convomanager(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  RustCallStatus status =
+      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
+  auto value = uniffi_foobar_fn_clone_convomanager(
+      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
+  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
+                                                       args[count - 1]);
+
+  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
+}
+jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_free_convomanager(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  RustCallStatus status =
+      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
+  uniffi_foobar_fn_free_convomanager(
+      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
+  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
+                                                       args[count - 1]);
+
+  return jsi::Value::undefined();
+}
+jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_constructor_convomanager_new(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  RustCallStatus status =
+      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
+  auto value = uniffi_foobar_fn_constructor_convomanager_new(
+      uniffi::foobar::Bridging<RustBuffer>::fromJs(rt, callInvoker, args[0]),
+      &status);
+  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
+                                                       args[count - 1]);
+
+  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
+}
+jsi::Value
+NativeFoobar::cpp_uniffi_foobar_fn_method_convomanager_create_new_group(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  RustCallStatus status =
+      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
+  auto value = uniffi_foobar_fn_method_convomanager_create_new_group(
+      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
+      uniffi::foobar::Bridging<RustBuffer>::fromJs(rt, callInvoker, args[1]),
+      &status);
   uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
                                                        args[count - 1]);
 
@@ -2706,6 +2867,14 @@ NativeFoobar::cpp_uniffi_foobar_checksum_method_calculator_last_result(
 
   return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
+jsi::Value
+NativeFoobar::cpp_uniffi_foobar_checksum_method_convomanager_create_new_group(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  auto value = uniffi_foobar_checksum_method_convomanager_create_new_group();
+
+  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
+}
 jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_method_safeaddition_perform(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
@@ -2724,6 +2893,14 @@ jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_constructor_calculator_new(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
   auto value = uniffi_foobar_checksum_constructor_calculator_new();
+
+  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
+}
+jsi::Value
+NativeFoobar::cpp_uniffi_foobar_checksum_constructor_convomanager_new(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  auto value = uniffi_foobar_checksum_constructor_convomanager_new();
 
   return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
