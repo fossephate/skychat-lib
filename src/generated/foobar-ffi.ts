@@ -77,11 +77,46 @@ interface NativeModuleInterface {
     name: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): bigint;
+  ubrn_uniffi_foobar_fn_method_convomanager_create_invite(
+    ptr: bigint,
+    groupId: Uint8Array,
+    keyPackage: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_create_message(
+    ptr: bigint,
+    groupId: Uint8Array,
+    message: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
   ubrn_uniffi_foobar_fn_method_convomanager_create_new_group(
     ptr: bigint,
     name: Uint8Array,
     uniffi_out_err: UniffiRustCallStatus
   ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_get_group_epoch(
+    ptr: bigint,
+    groupId: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_foobar_fn_method_convomanager_get_key_package(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_process_message(
+    ptr: bigint,
+    message: Uint8Array,
+    senderId: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_process_raw_invite(
+    ptr: bigint,
+    groupName: Uint8Array,
+    welcomeMessage: Uint8Array,
+    ratchetTree: Uint8Array,
+    keyPackage: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): void;
   ubrn_uniffi_foobar_fn_clone_safeaddition(
     ptr: bigint,
     uniffi_out_err: UniffiRustCallStatus
@@ -128,7 +163,13 @@ interface NativeModuleInterface {
   ubrn_uniffi_foobar_checksum_method_calculator_calculate(): number;
   ubrn_uniffi_foobar_checksum_method_calculator_calculate_more(): number;
   ubrn_uniffi_foobar_checksum_method_calculator_last_result(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_create_invite(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_create_message(): number;
   ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_get_group_epoch(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_get_key_package(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_process_message(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_process_raw_invite(): number;
   ubrn_uniffi_foobar_checksum_method_safeaddition_perform(): number;
   ubrn_uniffi_foobar_checksum_method_safedivision_perform(): number;
   ubrn_uniffi_foobar_checksum_constructor_calculator_new(): number;

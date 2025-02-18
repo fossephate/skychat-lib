@@ -161,6 +161,136 @@ const FfiConverterTypeComputationResult = (() => {
   return new FFIConverter();
 })();
 
+export type ConvoInviteWrapped = {
+  groupName: string;
+  welcomeMessage: ArrayBuffer;
+  ratchetTree: ArrayBuffer | undefined;
+  globalIndex: /*u64*/ bigint;
+  fanned: ArrayBuffer | undefined;
+};
+
+/**
+ * Generated factory for {@link ConvoInviteWrapped} record objects.
+ */
+export const ConvoInviteWrapped = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<ConvoInviteWrapped, ReturnType<typeof defaults>>(
+      defaults
+    );
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link ConvoInviteWrapped}, with defaults specified
+     * in Rust, in the {@link foobar} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link ConvoInviteWrapped}, with defaults specified
+     * in Rust, in the {@link foobar} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link foobar} crate.
+     */
+    defaults: () => Object.freeze(defaults()) as Partial<ConvoInviteWrapped>,
+  });
+})();
+
+const FfiConverterTypeConvoInviteWrapped = (() => {
+  type TypeName = ConvoInviteWrapped;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        groupName: FfiConverterString.read(from),
+        welcomeMessage: FfiConverterArrayBuffer.read(from),
+        ratchetTree: FfiConverterOptionalArrayBuffer.read(from),
+        globalIndex: FfiConverterUInt64.read(from),
+        fanned: FfiConverterOptionalArrayBuffer.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterString.write(value.groupName, into);
+      FfiConverterArrayBuffer.write(value.welcomeMessage, into);
+      FfiConverterOptionalArrayBuffer.write(value.ratchetTree, into);
+      FfiConverterUInt64.write(value.globalIndex, into);
+      FfiConverterOptionalArrayBuffer.write(value.fanned, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterString.allocationSize(value.groupName) +
+        FfiConverterArrayBuffer.allocationSize(value.welcomeMessage) +
+        FfiConverterOptionalArrayBuffer.allocationSize(value.ratchetTree) +
+        FfiConverterUInt64.allocationSize(value.globalIndex) +
+        FfiConverterOptionalArrayBuffer.allocationSize(value.fanned)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
+export type ProcessedResultsWrapped = {
+  message: string | undefined;
+  invite: ConvoInviteWrapped | undefined;
+};
+
+/**
+ * Generated factory for {@link ProcessedResultsWrapped} record objects.
+ */
+export const ProcessedResultsWrapped = (() => {
+  const defaults = () => ({});
+  const create = (() => {
+    return uniffiCreateRecord<
+      ProcessedResultsWrapped,
+      ReturnType<typeof defaults>
+    >(defaults);
+  })();
+  return Object.freeze({
+    /**
+     * Create a frozen instance of {@link ProcessedResultsWrapped}, with defaults specified
+     * in Rust, in the {@link foobar} crate.
+     */
+    create,
+
+    /**
+     * Create a frozen instance of {@link ProcessedResultsWrapped}, with defaults specified
+     * in Rust, in the {@link foobar} crate.
+     */
+    new: create,
+
+    /**
+     * Defaults specified in the {@link foobar} crate.
+     */
+    defaults: () =>
+      Object.freeze(defaults()) as Partial<ProcessedResultsWrapped>,
+  });
+})();
+
+const FfiConverterTypeProcessedResultsWrapped = (() => {
+  type TypeName = ProcessedResultsWrapped;
+  class FFIConverter extends AbstractFfiConverterByteArray<TypeName> {
+    read(from: RustBuffer): TypeName {
+      return {
+        message: FfiConverterOptionalString.read(from),
+        invite: FfiConverterOptionalTypeConvoInviteWrapped.read(from),
+      };
+    }
+    write(value: TypeName, into: RustBuffer): void {
+      FfiConverterOptionalString.write(value.message, into);
+      FfiConverterOptionalTypeConvoInviteWrapped.write(value.invite, into);
+    }
+    allocationSize(value: TypeName): number {
+      return (
+        FfiConverterOptionalString.allocationSize(value.message) +
+        FfiConverterOptionalTypeConvoInviteWrapped.allocationSize(value.invite)
+      );
+    }
+  }
+  return new FFIConverter();
+})();
+
 const stringConverter = {
   stringToBytes: (s: string) =>
     uniffiCaller.rustCall((status) =>
@@ -873,7 +1003,24 @@ const FfiConverterTypeCalculator = new FfiConverterObject(
 );
 
 export interface ConvoManagerInterface {
+  createInvite(
+    groupId: ArrayBuffer,
+    keyPackage: ArrayBuffer
+  ): ConvoInviteWrapped;
+  createMessage(groupId: ArrayBuffer, message: string): ArrayBuffer;
   createNewGroup(name: string): ArrayBuffer;
+  getGroupEpoch(groupId: ArrayBuffer): /*u64*/ bigint;
+  getKeyPackage(): ArrayBuffer;
+  processMessage(
+    message: ArrayBuffer,
+    senderId: string | undefined
+  ): ProcessedResultsWrapped;
+  processRawInvite(
+    groupName: string,
+    welcomeMessage: ArrayBuffer,
+    ratchetTree: ArrayBuffer | undefined,
+    keyPackage: ArrayBuffer | undefined
+  ): void;
 }
 
 export class ConvoManager
@@ -899,6 +1046,41 @@ export class ConvoManager
       uniffiTypeConvoManagerObjectFactory.bless(pointer);
   }
 
+  public createInvite(
+    groupId: ArrayBuffer,
+    keyPackage: ArrayBuffer
+  ): ConvoInviteWrapped {
+    return FfiConverterTypeConvoInviteWrapped.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_create_invite(
+            uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+            FfiConverterArrayBuffer.lower(groupId),
+            FfiConverterArrayBuffer.lower(keyPackage),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  public createMessage(groupId: ArrayBuffer, message: string): ArrayBuffer {
+    return FfiConverterArrayBuffer.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_create_message(
+            uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+            FfiConverterArrayBuffer.lower(groupId),
+            FfiConverterString.lower(message),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
   public createNewGroup(name: string): ArrayBuffer {
     return FfiConverterArrayBuffer.lift(
       uniffiCaller.rustCall(
@@ -911,6 +1093,75 @@ export class ConvoManager
         },
         /*liftString:*/ FfiConverterString.lift
       )
+    );
+  }
+
+  public getGroupEpoch(groupId: ArrayBuffer): /*u64*/ bigint {
+    return FfiConverterUInt64.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_get_group_epoch(
+            uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+            FfiConverterArrayBuffer.lower(groupId),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  public getKeyPackage(): ArrayBuffer {
+    return FfiConverterArrayBuffer.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_get_key_package(
+            uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  public processMessage(
+    message: ArrayBuffer,
+    senderId: string | undefined
+  ): ProcessedResultsWrapped {
+    return FfiConverterTypeProcessedResultsWrapped.lift(
+      uniffiCaller.rustCall(
+        /*caller:*/ (callStatus) => {
+          return nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_process_message(
+            uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+            FfiConverterArrayBuffer.lower(message),
+            FfiConverterOptionalString.lower(senderId),
+            callStatus
+          );
+        },
+        /*liftString:*/ FfiConverterString.lift
+      )
+    );
+  }
+
+  public processRawInvite(
+    groupName: string,
+    welcomeMessage: ArrayBuffer,
+    ratchetTree: ArrayBuffer | undefined,
+    keyPackage: ArrayBuffer | undefined
+  ): void {
+    uniffiCaller.rustCall(
+      /*caller:*/ (callStatus) => {
+        nativeModule().ubrn_uniffi_foobar_fn_method_convomanager_process_raw_invite(
+          uniffiTypeConvoManagerObjectFactory.clonePointer(this),
+          FfiConverterString.lower(groupName),
+          FfiConverterArrayBuffer.lower(welcomeMessage),
+          FfiConverterOptionalArrayBuffer.lower(ratchetTree),
+          FfiConverterOptionalArrayBuffer.lower(keyPackage),
+          callStatus
+        );
+      },
+      /*liftString:*/ FfiConverterString.lift
     );
   }
 
@@ -1265,10 +1516,23 @@ const FfiConverterTypeSafeDivision = new FfiConverterObject(
   uniffiTypeSafeDivisionObjectFactory
 );
 
+// FfiConverter for ArrayBuffer | undefined
+const FfiConverterOptionalArrayBuffer = new FfiConverterOptional(
+  FfiConverterArrayBuffer
+);
+
 // FfiConverter for ComputationResult | undefined
 const FfiConverterOptionalTypeComputationResult = new FfiConverterOptional(
   FfiConverterTypeComputationResult
 );
+
+// FfiConverter for ConvoInviteWrapped | undefined
+const FfiConverterOptionalTypeConvoInviteWrapped = new FfiConverterOptional(
+  FfiConverterTypeConvoInviteWrapped
+);
+
+// FfiConverter for string | undefined
+const FfiConverterOptionalString = new FfiConverterOptional(FfiConverterString);
 
 /**
  * This should be called before anything else.
@@ -1341,11 +1605,59 @@ function uniffiEnsureInitialized() {
     );
   }
   if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_create_invite() !==
+    50229
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_create_invite'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_create_message() !==
+    101
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_create_message'
+    );
+  }
+  if (
     nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group() !==
     44787
   ) {
     throw new UniffiInternalError.ApiChecksumMismatch(
       'uniffi_foobar_checksum_method_convomanager_create_new_group'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_get_group_epoch() !==
+    35913
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_get_group_epoch'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_get_key_package() !==
+    58549
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_get_key_package'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_process_message() !==
+    23084
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_process_message'
+    );
+  }
+  if (
+    nativeModule().ubrn_uniffi_foobar_checksum_method_convomanager_process_raw_invite() !==
+    34162
+  ) {
+    throw new UniffiInternalError.ApiChecksumMismatch(
+      'uniffi_foobar_checksum_method_convomanager_process_raw_invite'
     );
   }
   if (
@@ -1407,7 +1719,9 @@ export default Object.freeze({
     FfiConverterTypeCalculator,
     FfiConverterTypeComputationResult,
     FfiConverterTypeComputationState,
+    FfiConverterTypeConvoInviteWrapped,
     FfiConverterTypeConvoManager,
+    FfiConverterTypeProcessedResultsWrapped,
     FfiConverterTypeSafeAddition,
     FfiConverterTypeSafeDivision,
   },
