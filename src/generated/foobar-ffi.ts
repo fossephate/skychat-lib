@@ -8,34 +8,92 @@ import {
   type UniffiRustArcPtr,
   type UniffiRustFutureContinuationCallback as RuntimeUniffiRustFutureContinuationCallback,
   type UniffiResult,
- } from 'uniffi-bindgen-react-native';
+} from 'uniffi-bindgen-react-native';
 
 interface NativeModuleInterface {
-    ubrn_uniffi_internal_fn_func_ffi__string_to_byte_length(string: string, uniffi_out_err: UniffiRustCallStatus): number;
-    ubrn_uniffi_internal_fn_func_ffi__string_to_arraybuffer(string: string, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_internal_fn_func_ffi__arraybuffer_to_string(buffer: Uint8Array, uniffi_out_err: UniffiRustCallStatus): string;
-    ubrn_uniffi_foobar_fn_clone_convomanager(ptr: bigint, uniffi_out_err: UniffiRustCallStatus): bigint;
-    ubrn_uniffi_foobar_fn_free_convomanager(ptr: bigint, uniffi_out_err: UniffiRustCallStatus): void;
-    ubrn_uniffi_foobar_fn_constructor_convomanager_new(name: Uint8Array, uniffi_out_err: UniffiRustCallStatus): bigint;
-    ubrn_uniffi_foobar_fn_method_convomanager_create_invite(ptr: bigint, groupId: Uint8Array, keyPackage: Uint8Array, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_foobar_fn_method_convomanager_create_message(ptr: bigint, groupId: Uint8Array, message: Uint8Array, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_foobar_fn_method_convomanager_create_new_group(ptr: bigint, name: Uint8Array, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_foobar_fn_method_convomanager_get_group_epoch(ptr: bigint, groupId: Uint8Array, uniffi_out_err: UniffiRustCallStatus): bigint;
-    ubrn_uniffi_foobar_fn_method_convomanager_get_key_package(ptr: bigint, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_foobar_fn_method_convomanager_get_partial_group(ptr: bigint, groupId: Uint8Array, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_foobar_fn_method_convomanager_process_message(ptr: bigint, message: Uint8Array, senderId: Uint8Array, uniffi_out_err: UniffiRustCallStatus): Uint8Array;
-    ubrn_uniffi_foobar_fn_method_convomanager_process_raw_invite(ptr: bigint, groupName: Uint8Array, welcomeMessage: Uint8Array, ratchetTree: Uint8Array, keyPackage: Uint8Array, uniffi_out_err: UniffiRustCallStatus): void;
-    ubrn_uniffi_foobar_checksum_method_convomanager_create_invite(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_create_message(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_get_group_epoch(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_get_key_package(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_get_partial_group(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_process_message(): number;
-    ubrn_uniffi_foobar_checksum_method_convomanager_process_raw_invite(): number;
-    ubrn_uniffi_foobar_checksum_constructor_convomanager_new(): number;
-    ubrn_ffi_foobar_uniffi_contract_version(): number;
-    ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(pointer: bigint, uniffi_out_err: UniffiRustCallStatus): UniffiRustArcPtr;
+  ubrn_uniffi_internal_fn_func_ffi__string_to_byte_length(
+    string: string,
+    uniffi_out_err: UniffiRustCallStatus
+  ): number;
+  ubrn_uniffi_internal_fn_func_ffi__string_to_arraybuffer(
+    string: string,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_internal_fn_func_ffi__arraybuffer_to_string(
+    buffer: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): string;
+  ubrn_uniffi_foobar_fn_clone_convomanager(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_foobar_fn_free_convomanager(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): void;
+  ubrn_uniffi_foobar_fn_constructor_convomanager_new(
+    name: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_foobar_fn_method_convomanager_create_invite(
+    ptr: bigint,
+    groupId: Uint8Array,
+    keyPackage: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_create_message(
+    ptr: bigint,
+    groupId: Uint8Array,
+    message: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_create_new_group(
+    ptr: bigint,
+    name: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_get_group_epoch(
+    ptr: bigint,
+    groupId: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): bigint;
+  ubrn_uniffi_foobar_fn_method_convomanager_get_key_package(
+    ptr: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_get_partial_group(
+    ptr: bigint,
+    groupId: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_process_message(
+    ptr: bigint,
+    message: Uint8Array,
+    senderId: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): Uint8Array;
+  ubrn_uniffi_foobar_fn_method_convomanager_process_raw_invite(
+    ptr: bigint,
+    groupName: Uint8Array,
+    welcomeMessage: Uint8Array,
+    ratchetTree: Uint8Array,
+    keyPackage: Uint8Array,
+    uniffi_out_err: UniffiRustCallStatus
+  ): void;
+  ubrn_uniffi_foobar_checksum_method_convomanager_create_invite(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_create_message(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_create_new_group(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_get_group_epoch(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_get_key_package(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_get_partial_group(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_process_message(): number;
+  ubrn_uniffi_foobar_checksum_method_convomanager_process_raw_invite(): number;
+  ubrn_uniffi_foobar_checksum_constructor_convomanager_new(): number;
+  ubrn_ffi_foobar_uniffi_contract_version(): number;
+  ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
+    pointer: bigint,
+    uniffi_out_err: UniffiRustCallStatus
+  ): UniffiRustArcPtr;
 }
 
 // Casting globalThis to any allows us to look for `NativeFoobar`
@@ -43,11 +101,15 @@ interface NativeModuleInterface {
 //
 // We use a getter here rather than simply `globalThis.NativeFoobar` so that
 // if/when the startup sequence isn't just so, an empty value isn't inadvertantly cached.
-const getter: () => NativeModuleInterface = () => (globalThis as any).NativeFoobar;
+const getter: () => NativeModuleInterface = () =>
+  (globalThis as any).NativeFoobar;
 export default getter;
 
 // Structs and function types for calling back into Typescript from Rust.
-export type UniffiRustFutureContinuationCallback = (data: bigint, pollResult: number) => void;
+export type UniffiRustFutureContinuationCallback = (
+  data: bigint,
+  pollResult: number
+) => void;
 type UniffiForeignFutureFree = (handle: bigint) => void;
 type UniffiCallbackInterfaceFree = (handle: bigint) => void;
 export type UniffiForeignFuture = {
@@ -58,66 +120,105 @@ export type UniffiForeignFutureStructU8 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteU8 = (callbackData: bigint, result: UniffiForeignFutureStructU8) => void;
+export type UniffiForeignFutureCompleteU8 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructU8
+) => void;
 export type UniffiForeignFutureStructI8 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteI8 = (callbackData: bigint, result: UniffiForeignFutureStructI8) => void;
+export type UniffiForeignFutureCompleteI8 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructI8
+) => void;
 export type UniffiForeignFutureStructU16 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteU16 = (callbackData: bigint, result: UniffiForeignFutureStructU16) => void;
+export type UniffiForeignFutureCompleteU16 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructU16
+) => void;
 export type UniffiForeignFutureStructI16 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteI16 = (callbackData: bigint, result: UniffiForeignFutureStructI16) => void;
+export type UniffiForeignFutureCompleteI16 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructI16
+) => void;
 export type UniffiForeignFutureStructU32 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteU32 = (callbackData: bigint, result: UniffiForeignFutureStructU32) => void;
+export type UniffiForeignFutureCompleteU32 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructU32
+) => void;
 export type UniffiForeignFutureStructI32 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteI32 = (callbackData: bigint, result: UniffiForeignFutureStructI32) => void;
+export type UniffiForeignFutureCompleteI32 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructI32
+) => void;
 export type UniffiForeignFutureStructU64 = {
   returnValue: bigint;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteU64 = (callbackData: bigint, result: UniffiForeignFutureStructU64) => void;
+export type UniffiForeignFutureCompleteU64 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructU64
+) => void;
 export type UniffiForeignFutureStructI64 = {
   returnValue: bigint;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteI64 = (callbackData: bigint, result: UniffiForeignFutureStructI64) => void;
+export type UniffiForeignFutureCompleteI64 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructI64
+) => void;
 export type UniffiForeignFutureStructF32 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteF32 = (callbackData: bigint, result: UniffiForeignFutureStructF32) => void;
+export type UniffiForeignFutureCompleteF32 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructF32
+) => void;
 export type UniffiForeignFutureStructF64 = {
   returnValue: number;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteF64 = (callbackData: bigint, result: UniffiForeignFutureStructF64) => void;
+export type UniffiForeignFutureCompleteF64 = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructF64
+) => void;
 export type UniffiForeignFutureStructPointer = {
   returnValue: bigint;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompletePointer = (callbackData: bigint, result: UniffiForeignFutureStructPointer) => void;
+export type UniffiForeignFutureCompletePointer = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructPointer
+) => void;
 export type UniffiForeignFutureStructRustBuffer = {
   returnValue: Uint8Array;
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteRustBuffer = (callbackData: bigint, result: UniffiForeignFutureStructRustBuffer) => void;
+export type UniffiForeignFutureCompleteRustBuffer = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructRustBuffer
+) => void;
 export type UniffiForeignFutureStructVoid = {
   callStatus: UniffiRustCallStatus;
 };
-export type UniffiForeignFutureCompleteVoid = (callbackData: bigint, result: UniffiForeignFutureStructVoid) => void;
+export type UniffiForeignFutureCompleteVoid = (
+  callbackData: bigint,
+  result: UniffiForeignFutureStructVoid
+) => void;
 
 // UniffiRustFutureContinuationCallback is generated as part of the component interface's
 // ffi_definitions. However, we need it in the runtime.

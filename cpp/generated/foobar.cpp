@@ -100,36 +100,6 @@ typedef struct UniffiForeignFutureStructVoid {
 } UniffiForeignFutureStructVoid;
 typedef void (*UniffiForeignFutureCompleteVoid)(
     uint64_t callback_data, UniffiForeignFutureStructVoid result);
-typedef void (*UniffiCallbackInterfaceBinaryOperatorMethod0)(
-    uint64_t uniffi_handle, int64_t lhs, int64_t rhs,
-    int64_t *uniffi_out_return, RustCallStatus *rust_call_status);
-typedef struct UniffiVTableCallbackInterfaceBinaryOperator {
-  UniffiCallbackInterfaceBinaryOperatorMethod0 perform;
-  UniffiCallbackInterfaceFree uniffi_free;
-} UniffiVTableCallbackInterfaceBinaryOperator;
-void *uniffi_foobar_fn_clone_binaryoperator(void *ptr,
-                                            RustCallStatus *uniffi_out_err);
-void uniffi_foobar_fn_free_binaryoperator(void *ptr,
-                                          RustCallStatus *uniffi_out_err);
-void uniffi_foobar_fn_init_callback_vtable_binaryoperator(
-    UniffiVTableCallbackInterfaceBinaryOperator *vtable);
-int64_t uniffi_foobar_fn_method_binaryoperator_perform(
-    void *ptr, int64_t lhs, int64_t rhs, RustCallStatus *uniffi_out_err);
-void *uniffi_foobar_fn_clone_calculator(void *ptr,
-                                        RustCallStatus *uniffi_out_err);
-void uniffi_foobar_fn_free_calculator(void *ptr,
-                                      RustCallStatus *uniffi_out_err);
-void *
-uniffi_foobar_fn_constructor_calculator_new(RustCallStatus *uniffi_out_err);
-void *
-uniffi_foobar_fn_method_calculator_calculate(void *ptr, void *op, int64_t lhs,
-                                             int64_t rhs,
-                                             RustCallStatus *uniffi_out_err);
-void *uniffi_foobar_fn_method_calculator_calculate_more(
-    void *ptr, void *op, int64_t rhs, RustCallStatus *uniffi_out_err);
-RustBuffer
-uniffi_foobar_fn_method_calculator_last_result(void *ptr,
-                                               RustCallStatus *uniffi_out_err);
 void *uniffi_foobar_fn_clone_convomanager(void *ptr,
                                           RustCallStatus *uniffi_out_err);
 void uniffi_foobar_fn_free_convomanager(void *ptr,
@@ -149,6 +119,8 @@ uint64_t uniffi_foobar_fn_method_convomanager_get_group_epoch(
     void *ptr, RustBuffer group_id, RustCallStatus *uniffi_out_err);
 RustBuffer uniffi_foobar_fn_method_convomanager_get_key_package(
     void *ptr, RustCallStatus *uniffi_out_err);
+RustBuffer uniffi_foobar_fn_method_convomanager_get_partial_group(
+    void *ptr, RustBuffer group_id, RustCallStatus *uniffi_out_err);
 RustBuffer uniffi_foobar_fn_method_convomanager_process_message(
     void *ptr, RustBuffer message, RustBuffer sender_id,
     RustCallStatus *uniffi_out_err);
@@ -156,26 +128,6 @@ void uniffi_foobar_fn_method_convomanager_process_raw_invite(
     void *ptr, RustBuffer group_name, RustBuffer welcome_message,
     RustBuffer ratchet_tree, RustBuffer key_package,
     RustCallStatus *uniffi_out_err);
-void *uniffi_foobar_fn_clone_safeaddition(void *ptr,
-                                          RustCallStatus *uniffi_out_err);
-void uniffi_foobar_fn_free_safeaddition(void *ptr,
-                                        RustCallStatus *uniffi_out_err);
-void *
-uniffi_foobar_fn_constructor_safeaddition_new(RustCallStatus *uniffi_out_err);
-int64_t uniffi_foobar_fn_method_safeaddition_perform(
-    void *ptr, int64_t lhs, int64_t rhs, RustCallStatus *uniffi_out_err);
-void *uniffi_foobar_fn_clone_safedivision(void *ptr,
-                                          RustCallStatus *uniffi_out_err);
-void uniffi_foobar_fn_free_safedivision(void *ptr,
-                                        RustCallStatus *uniffi_out_err);
-void *
-uniffi_foobar_fn_constructor_safedivision_new(RustCallStatus *uniffi_out_err);
-int64_t uniffi_foobar_fn_method_safedivision_perform(
-    void *ptr, int64_t lhs, int64_t rhs, RustCallStatus *uniffi_out_err);
-void *
-uniffi_foobar_fn_func_safe_addition_operator(RustCallStatus *uniffi_out_err);
-void *
-uniffi_foobar_fn_func_safe_division_operator(RustCallStatus *uniffi_out_err);
 RustBuffer ffi_foobar_rustbuffer_alloc(uint64_t size,
                                        RustCallStatus *uniffi_out_err);
 RustBuffer ffi_foobar_rustbuffer_from_bytes(ForeignBytes bytes,
@@ -300,25 +252,15 @@ void ffi_foobar_rust_future_free_void(
     /*handle*/ uint64_t handle);
 void ffi_foobar_rust_future_complete_void(
     /*handle*/ uint64_t handle, RustCallStatus *uniffi_out_err);
-uint16_t uniffi_foobar_checksum_func_safe_addition_operator();
-uint16_t uniffi_foobar_checksum_func_safe_division_operator();
-uint16_t uniffi_foobar_checksum_method_binaryoperator_perform();
-uint16_t uniffi_foobar_checksum_method_calculator_calculate();
-uint16_t uniffi_foobar_checksum_method_calculator_calculate_more();
-uint16_t uniffi_foobar_checksum_method_calculator_last_result();
 uint16_t uniffi_foobar_checksum_method_convomanager_create_invite();
 uint16_t uniffi_foobar_checksum_method_convomanager_create_message();
 uint16_t uniffi_foobar_checksum_method_convomanager_create_new_group();
 uint16_t uniffi_foobar_checksum_method_convomanager_get_group_epoch();
 uint16_t uniffi_foobar_checksum_method_convomanager_get_key_package();
+uint16_t uniffi_foobar_checksum_method_convomanager_get_partial_group();
 uint16_t uniffi_foobar_checksum_method_convomanager_process_message();
 uint16_t uniffi_foobar_checksum_method_convomanager_process_raw_invite();
-uint16_t uniffi_foobar_checksum_method_safeaddition_perform();
-uint16_t uniffi_foobar_checksum_method_safedivision_perform();
-uint16_t uniffi_foobar_checksum_constructor_calculator_new();
 uint16_t uniffi_foobar_checksum_constructor_convomanager_new();
-uint16_t uniffi_foobar_checksum_constructor_safeaddition_new();
-uint16_t uniffi_foobar_checksum_constructor_safedivision_new();
 uint32_t ffi_foobar_uniffi_contract_version();
 }
 
@@ -712,106 +654,6 @@ static void cleanup() {
   rsLambda = nullptr;
 }
 } // namespace uniffi::foobar::st::foreignfuture::foreignfuture::free
-
-// Callback function:
-// uniffi::foobar::st::vtablecallbackinterfacebinaryoperator::vtablecallbackinterfacebinaryoperator::free::UniffiCallbackInterfaceFree
-//
-// We have the following constraints:
-// - we need to pass a function pointer to Rust.
-// - we need a jsi::Runtime and jsi::Function to call into JS.
-// - function pointers can't store state, so we can't use a lamda.
-//
-// For this, we store a lambda as a global, as `rsLambda`. The `callback`
-// function calls the lambda, which itself calls the `body` which then calls
-// into JS.
-//
-// We then give the `callback` function pointer to Rust which will call the
-// lambda sometime in the future.
-namespace uniffi::foobar::st::vtablecallbackinterfacebinaryoperator::
-    vtablecallbackinterfacebinaryoperator::free {
-using namespace facebook;
-
-// We need to store a lambda in a global so we can call it from
-// a function pointer. The function pointer is passed to Rust.
-static std::function<void(uint64_t)> rsLambda = nullptr;
-
-// This is the main body of the callback. It's called from the lambda,
-// which itself is called from the callback function which is passed to Rust.
-static void body(jsi::Runtime &rt,
-                 std::shared_ptr<uniffi_runtime::UniffiCallInvoker> callInvoker,
-                 std::shared_ptr<jsi::Value> callbackValue,
-                 uint64_t rs_handle) {
-
-  // Convert the arguments from Rust, into jsi::Values.
-  // We'll use the Bridging class to do this…
-  auto js_handle =
-      uniffi_jsi::Bridging<uint64_t>::toJs(rt, callInvoker, rs_handle);
-
-  // Now we are ready to call the callback.
-  // We are already on the JS thread, because this `body` function was
-  // invoked from the CallInvoker.
-  try {
-    // Getting the callback function
-    auto cb = callbackValue->asObject(rt).asFunction(rt);
-    auto uniffiResult = cb.call(rt, js_handle);
-
-  } catch (const jsi::JSError &error) {
-    std::cout << "Error in callback UniffiCallbackInterfaceFree: "
-              << error.what() << std::endl;
-    throw error;
-  }
-}
-
-static void callback(uint64_t rs_handle) {
-  // If the runtime has shutdown, then there is no point in trying to
-  // call into Javascript. BUT how do we tell if the runtime has shutdown?
-  //
-  // Answer: the module destructor calls into callback `cleanup` method,
-  // which nulls out the rsLamda.
-  //
-  // If rsLamda is null, then there is no runtime to call into.
-  if (rsLambda == nullptr) {
-    // This only occurs when destructors are calling into Rust free/drop,
-    // which causes the JS callback to be dropped.
-    return;
-  }
-
-  // The runtime, the actual callback jsi::funtion, and the callInvoker
-  // are all in the lambda.
-  rsLambda(rs_handle);
-}
-
-static UniffiCallbackInterfaceFree
-makeCallbackFunction( // uniffi::foobar::st::vtablecallbackinterfacebinaryoperator::vtablecallbackinterfacebinaryoperator::free
-    jsi::Runtime &rt,
-    std::shared_ptr<uniffi_runtime::UniffiCallInvoker> callInvoker,
-    const jsi::Value &value) {
-  auto callbackFunction = value.asObject(rt).asFunction(rt);
-  auto callbackValue = std::make_shared<jsi::Value>(rt, callbackFunction);
-  rsLambda = [&rt, callInvoker, callbackValue](uint64_t rs_handle) {
-    // We immediately make a lambda which will do the work of transforming the
-    // arguments into JSI values and calling the callback.
-    uniffi_runtime::UniffiCallFunc jsLambda =
-        [callInvoker, callbackValue, rs_handle](jsi::Runtime &rt) mutable {
-          body(rt, callInvoker, callbackValue, rs_handle);
-        };
-    // We'll then call that lambda from the callInvoker which will
-    // look after calling it on the correct thread.
-
-    callInvoker->invokeNonBlocking(rt, jsLambda);
-  };
-  return callback;
-}
-
-// This method is called from the destructor of NativeFoobar, which only happens
-// when the jsi::Runtime is being destroyed.
-static void cleanup() {
-  // The lambda holds a reference to the the Runtime, so when this is nulled
-  // out, then the pointer will no longer be left dangling.
-  rsLambda = nullptr;
-}
-} // namespace
-  // uniffi::foobar::st::vtablecallbackinterfacebinaryoperator::vtablecallbackinterfacebinaryoperator::free
 namespace uniffi::foobar {
 using namespace facebook;
 using CallInvoker = uniffi_runtime::UniffiCallInvoker;
@@ -1697,169 +1539,6 @@ template <> struct Bridging<UniffiForeignFutureCompleteVoid> {
   }
 };
 } // namespace uniffi::foobar
-  // Implementation of callback function calling from Rust to JS
-  // CallbackInterfaceBinaryOperatorMethod0
-
-// Callback function:
-// uniffi::foobar::cb::callbackinterfacebinaryoperatormethod0::UniffiCallbackInterfaceBinaryOperatorMethod0
-//
-// We have the following constraints:
-// - we need to pass a function pointer to Rust.
-// - we need a jsi::Runtime and jsi::Function to call into JS.
-// - function pointers can't store state, so we can't use a lamda.
-//
-// For this, we store a lambda as a global, as `rsLambda`. The `callback`
-// function calls the lambda, which itself calls the `body` which then calls
-// into JS.
-//
-// We then give the `callback` function pointer to Rust which will call the
-// lambda sometime in the future.
-namespace uniffi::foobar::cb::callbackinterfacebinaryoperatormethod0 {
-using namespace facebook;
-
-// We need to store a lambda in a global so we can call it from
-// a function pointer. The function pointer is passed to Rust.
-static std::function<void(uint64_t, int64_t, int64_t, int64_t *,
-                          RustCallStatus *)>
-    rsLambda = nullptr;
-
-// This is the main body of the callback. It's called from the lambda,
-// which itself is called from the callback function which is passed to Rust.
-static void body(jsi::Runtime &rt,
-                 std::shared_ptr<uniffi_runtime::UniffiCallInvoker> callInvoker,
-                 std::shared_ptr<jsi::Value> callbackValue,
-                 uint64_t rs_uniffiHandle, int64_t rs_lhs, int64_t rs_rhs,
-                 int64_t *rs_uniffiOutReturn,
-                 RustCallStatus *uniffi_call_status) {
-
-  // Convert the arguments from Rust, into jsi::Values.
-  // We'll use the Bridging class to do this…
-  auto js_uniffiHandle =
-      uniffi_jsi::Bridging<uint64_t>::toJs(rt, callInvoker, rs_uniffiHandle);
-  auto js_lhs = uniffi_jsi::Bridging<int64_t>::toJs(rt, callInvoker, rs_lhs);
-  auto js_rhs = uniffi_jsi::Bridging<int64_t>::toJs(rt, callInvoker, rs_rhs);
-
-  // Now we are ready to call the callback.
-  // We are already on the JS thread, because this `body` function was
-  // invoked from the CallInvoker.
-  try {
-    // Getting the callback function
-    auto cb = callbackValue->asObject(rt).asFunction(rt);
-    auto uniffiResult = cb.call(rt, js_uniffiHandle, js_lhs, js_rhs);
-
-    // Now copy the result back from JS into the RustCallStatus object.
-    uniffi::foobar::Bridging<RustCallStatus>::copyFromJs(
-        rt, callInvoker, uniffiResult, uniffi_call_status);
-
-    if (uniffi_call_status->code != UNIFFI_CALL_STATUS_OK) {
-      // The JS callback finished abnormally, so we cannot retrieve the return
-      // value.
-      return;
-    }
-
-    // Finally, we need to copy the return value back into the Rust pointer.
-    *rs_uniffiOutReturn =
-        uniffi_jsi::Bridging<ReferenceHolder<int64_t>>::fromJs(rt, callInvoker,
-                                                               uniffiResult);
-  } catch (const jsi::JSError &error) {
-    std::cout
-        << "Error in callback UniffiCallbackInterfaceBinaryOperatorMethod0: "
-        << error.what() << std::endl;
-    throw error;
-  }
-}
-
-static void callback(uint64_t rs_uniffiHandle, int64_t rs_lhs, int64_t rs_rhs,
-                     int64_t *rs_uniffiOutReturn,
-                     RustCallStatus *uniffi_call_status) {
-  // If the runtime has shutdown, then there is no point in trying to
-  // call into Javascript. BUT how do we tell if the runtime has shutdown?
-  //
-  // Answer: the module destructor calls into callback `cleanup` method,
-  // which nulls out the rsLamda.
-  //
-  // If rsLamda is null, then there is no runtime to call into.
-  if (rsLambda == nullptr) {
-    // This only occurs when destructors are calling into Rust free/drop,
-    // which causes the JS callback to be dropped.
-    return;
-  }
-
-  // The runtime, the actual callback jsi::funtion, and the callInvoker
-  // are all in the lambda.
-  rsLambda(rs_uniffiHandle, rs_lhs, rs_rhs, rs_uniffiOutReturn,
-           uniffi_call_status);
-}
-
-static UniffiCallbackInterfaceBinaryOperatorMethod0
-makeCallbackFunction( // uniffi::foobar::cb::callbackinterfacebinaryoperatormethod0
-    jsi::Runtime &rt,
-    std::shared_ptr<uniffi_runtime::UniffiCallInvoker> callInvoker,
-    const jsi::Value &value) {
-  auto callbackFunction = value.asObject(rt).asFunction(rt);
-  auto callbackValue = std::make_shared<jsi::Value>(rt, callbackFunction);
-  rsLambda = [&rt, callInvoker,
-              callbackValue](uint64_t rs_uniffiHandle, int64_t rs_lhs,
-                             int64_t rs_rhs, int64_t *rs_uniffiOutReturn,
-                             RustCallStatus *uniffi_call_status) {
-    // We immediately make a lambda which will do the work of transforming the
-    // arguments into JSI values and calling the callback.
-    uniffi_runtime::UniffiCallFunc jsLambda =
-        [callInvoker, callbackValue, rs_uniffiHandle, rs_lhs, rs_rhs,
-         rs_uniffiOutReturn, uniffi_call_status](jsi::Runtime &rt) mutable {
-          body(rt, callInvoker, callbackValue, rs_uniffiHandle, rs_lhs, rs_rhs,
-               rs_uniffiOutReturn, uniffi_call_status);
-        };
-    // We'll then call that lambda from the callInvoker which will
-    // look after calling it on the correct thread.
-    callInvoker->invokeBlocking(rt, jsLambda);
-  };
-  return callback;
-}
-
-// This method is called from the destructor of NativeFoobar, which only happens
-// when the jsi::Runtime is being destroyed.
-static void cleanup() {
-  // The lambda holds a reference to the the Runtime, so when this is nulled
-  // out, then the pointer will no longer be left dangling.
-  rsLambda = nullptr;
-}
-} // namespace uniffi::foobar::cb::callbackinterfacebinaryoperatormethod0
-namespace uniffi::foobar {
-using namespace facebook;
-using CallInvoker = uniffi_runtime::UniffiCallInvoker;
-
-template <> struct Bridging<UniffiVTableCallbackInterfaceBinaryOperator> {
-  static UniffiVTableCallbackInterfaceBinaryOperator
-  fromJs(jsi::Runtime &rt, std::shared_ptr<CallInvoker> callInvoker,
-         const jsi::Value &jsValue) {
-    // Check if the input is an object
-    if (!jsValue.isObject()) {
-      throw jsi::JSError(
-          rt,
-          "Expected an object for UniffiVTableCallbackInterfaceBinaryOperator");
-    }
-
-    // Get the object from the jsi::Value
-    auto jsObject = jsValue.getObject(rt);
-
-    // Create the vtable struct
-    UniffiVTableCallbackInterfaceBinaryOperator rsObject;
-
-    // Create the vtable from the js callbacks.
-    rsObject.perform = uniffi::foobar::cb::
-        callbackinterfacebinaryoperatormethod0::makeCallbackFunction(
-            rt, callInvoker, jsObject.getProperty(rt, "perform"));
-    rsObject.uniffi_free =
-        uniffi::foobar::st::vtablecallbackinterfacebinaryoperator::
-            vtablecallbackinterfacebinaryoperator::free::makeCallbackFunction(
-                rt, callInvoker, jsObject.getProperty(rt, "uniffiFree"));
-
-    return rsObject;
-  }
-};
-
-} // namespace uniffi::foobar
 
 namespace uniffi::foobar {
 using namespace facebook;
@@ -1918,105 +1597,6 @@ NativeFoobar::NativeFoobar(
           [this](jsi::Runtime &rt, const jsi::Value &thisVal,
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this->cpp_uniffi_internal_fn_func_ffi__arraybuffer_to_string(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_clone_binaryoperator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_clone_binaryoperator"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_clone_binaryoperator(rt, thisVal,
-                                                                   args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_free_binaryoperator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_free_binaryoperator"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_free_binaryoperator(rt, thisVal,
-                                                                  args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_method_binaryoperator_perform"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_method_binaryoperator_perform"),
-          3,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_method_binaryoperator_perform(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_clone_calculator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt,
-                                    "ubrn_uniffi_foobar_fn_clone_calculator"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_clone_calculator(rt, thisVal,
-                                                               args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_free_calculator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt,
-                                    "ubrn_uniffi_foobar_fn_free_calculator"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_free_calculator(rt, thisVal, args,
-                                                              count);
-          });
-  props["ubrn_uniffi_foobar_fn_constructor_calculator_new"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_constructor_calculator_new"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_constructor_calculator_new(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_method_calculator_calculate"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_method_calculator_calculate"),
-          4,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_method_calculator_calculate(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_method_calculator_calculate_more"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_method_calculator_calculate_more"),
-          3,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_method_calculator_calculate_more(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_method_calculator_last_result"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_method_calculator_last_result"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_method_calculator_last_result(
                 rt, thisVal, args, count);
           });
   props["ubrn_uniffi_foobar_fn_clone_convomanager"] =
@@ -2111,6 +1691,19 @@ NativeFoobar::NativeFoobar(
                 ->cpp_uniffi_foobar_fn_method_convomanager_get_key_package(
                     rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_foobar_fn_method_convomanager_get_partial_group"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(
+              rt,
+              "ubrn_uniffi_foobar_fn_method_convomanager_get_partial_group"),
+          2,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_foobar_fn_method_convomanager_get_partial_group(
+                    rt, thisVal, args, count);
+          });
   props["ubrn_uniffi_foobar_fn_method_convomanager_process_message"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -2134,186 +1727,6 @@ NativeFoobar::NativeFoobar(
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this
                 ->cpp_uniffi_foobar_fn_method_convomanager_process_raw_invite(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_clone_safeaddition"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt,
-                                    "ubrn_uniffi_foobar_fn_clone_safeaddition"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_clone_safeaddition(rt, thisVal,
-                                                                 args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_free_safeaddition"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt,
-                                    "ubrn_uniffi_foobar_fn_free_safeaddition"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_free_safeaddition(rt, thisVal,
-                                                                args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_constructor_safeaddition_new"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_constructor_safeaddition_new"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_constructor_safeaddition_new(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_method_safeaddition_perform"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_method_safeaddition_perform"),
-          3,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_method_safeaddition_perform(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_clone_safedivision"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt,
-                                    "ubrn_uniffi_foobar_fn_clone_safedivision"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_clone_safedivision(rt, thisVal,
-                                                                 args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_free_safedivision"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt,
-                                    "ubrn_uniffi_foobar_fn_free_safedivision"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_free_safedivision(rt, thisVal,
-                                                                args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_constructor_safedivision_new"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_constructor_safedivision_new"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_constructor_safedivision_new(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_method_safedivision_perform"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_method_safedivision_perform"),
-          3,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_method_safedivision_perform(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_func_safe_addition_operator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_func_safe_addition_operator"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_func_safe_addition_operator(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_fn_func_safe_division_operator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_func_safe_division_operator"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_fn_func_safe_division_operator(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_func_safe_addition_operator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_func_safe_addition_operator"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_checksum_func_safe_addition_operator(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_func_safe_division_operator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_func_safe_division_operator"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_checksum_func_safe_division_operator(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_method_binaryoperator_perform"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_method_binaryoperator_perform"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_foobar_checksum_method_binaryoperator_perform(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_method_calculator_calculate"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_method_calculator_calculate"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_checksum_method_calculator_calculate(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_method_calculator_calculate_more"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt,
-              "ubrn_uniffi_foobar_checksum_method_calculator_calculate_more"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_foobar_checksum_method_calculator_calculate_more(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_method_calculator_last_result"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_method_calculator_last_result"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_foobar_checksum_method_calculator_last_result(
                     rt, thisVal, args, count);
           });
   props["ubrn_uniffi_foobar_checksum_method_convomanager_create_invite"] =
@@ -2378,6 +1791,18 @@ NativeFoobar::NativeFoobar(
                 ->cpp_uniffi_foobar_checksum_method_convomanager_get_key_package(
                     rt, thisVal, args, count);
           });
+  props["ubrn_uniffi_foobar_checksum_method_convomanager_get_partial_group"] =
+      jsi::Function::createFromHostFunction(
+          rt,
+          jsi::PropNameID::forAscii(rt, "ubrn_uniffi_foobar_checksum_method_"
+                                        "convomanager_get_partial_group"),
+          0,
+          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
+                 const jsi::Value *args, size_t count) -> jsi::Value {
+            return this
+                ->cpp_uniffi_foobar_checksum_method_convomanager_get_partial_group(
+                    rt, thisVal, args, count);
+          });
   props["ubrn_uniffi_foobar_checksum_method_convomanager_process_message"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -2402,39 +1827,6 @@ NativeFoobar::NativeFoobar(
                 ->cpp_uniffi_foobar_checksum_method_convomanager_process_raw_invite(
                     rt, thisVal, args, count);
           });
-  props["ubrn_uniffi_foobar_checksum_method_safeaddition_perform"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_method_safeaddition_perform"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_checksum_method_safeaddition_perform(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_method_safedivision_perform"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_method_safedivision_perform"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_checksum_method_safedivision_perform(
-                rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_constructor_calculator_new"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_constructor_calculator_new"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this->cpp_uniffi_foobar_checksum_constructor_calculator_new(
-                rt, thisVal, args, count);
-          });
   props["ubrn_uniffi_foobar_checksum_constructor_convomanager_new"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -2445,30 +1837,6 @@ NativeFoobar::NativeFoobar(
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this
                 ->cpp_uniffi_foobar_checksum_constructor_convomanager_new(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_constructor_safeaddition_new"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_constructor_safeaddition_new"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_foobar_checksum_constructor_safeaddition_new(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_foobar_checksum_constructor_safedivision_new"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_checksum_constructor_safedivision_new"),
-          0,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_foobar_checksum_constructor_safedivision_new(
                     rt, thisVal, args, count);
           });
   props["ubrn_ffi_foobar_uniffi_contract_version"] =
@@ -2482,43 +1850,6 @@ NativeFoobar::NativeFoobar(
             return this->cpp_ffi_foobar_uniffi_contract_version(rt, thisVal,
                                                                 args, count);
           });
-  props["ubrn_uniffi_foobar_fn_init_callback_vtable_binaryoperator"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt, "ubrn_uniffi_foobar_fn_init_callback_vtable_binaryoperator"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_foobar_fn_init_callback_vtable_binaryoperator(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_internal_fn_method_binaryoperator_ffi__bless_pointer"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(rt, "ubrn_uniffi_internal_fn_method_"
-                                        "binaryoperator_ffi__bless_pointer"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_internal_fn_method_binaryoperator_ffi__bless_pointer(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_internal_fn_method_calculator_ffi__bless_pointer"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt,
-              "ubrn_uniffi_internal_fn_method_calculator_ffi__bless_pointer"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_internal_fn_method_calculator_ffi__bless_pointer(
-                    rt, thisVal, args, count);
-          });
   props["ubrn_uniffi_internal_fn_method_convomanager_ffi__bless_pointer"] =
       jsi::Function::createFromHostFunction(
           rt,
@@ -2530,32 +1861,6 @@ NativeFoobar::NativeFoobar(
                  const jsi::Value *args, size_t count) -> jsi::Value {
             return this
                 ->cpp_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_internal_fn_method_safeaddition_ffi__bless_pointer"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt,
-              "ubrn_uniffi_internal_fn_method_safeaddition_ffi__bless_pointer"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_internal_fn_method_safeaddition_ffi__bless_pointer(
-                    rt, thisVal, args, count);
-          });
-  props["ubrn_uniffi_internal_fn_method_safedivision_ffi__bless_pointer"] =
-      jsi::Function::createFromHostFunction(
-          rt,
-          jsi::PropNameID::forAscii(
-              rt,
-              "ubrn_uniffi_internal_fn_method_safedivision_ffi__bless_pointer"),
-          1,
-          [this](jsi::Runtime &rt, const jsi::Value &thisVal,
-                 const jsi::Value *args, size_t count) -> jsi::Value {
-            return this
-                ->cpp_uniffi_internal_fn_method_safedivision_ffi__bless_pointer(
                     rt, thisVal, args, count);
           });
 }
@@ -2599,10 +1904,6 @@ NativeFoobar::~NativeFoobar() {
   uniffi::foobar::cb::rustfuturecontinuationcallback::cleanup();
   // Cleanup for "free" callback function CallbackInterfaceFree
   uniffi::foobar::st::foreignfuture::foreignfuture::free::cleanup();
-  uniffi::foobar::st::vtablecallbackinterfacebinaryoperator::
-      vtablecallbackinterfacebinaryoperator::free::cleanup();
-  // Cleanup for callback function CallbackInterfaceBinaryOperatorMethod0
-  uniffi::foobar::cb::callbackinterfacebinaryoperatormethod0::cleanup();
 }
 
 // Utility functions for serialization/deserialization of strings.
@@ -2624,38 +1925,6 @@ jsi::Value NativeFoobar::cpp_uniffi_internal_fn_func_ffi__arraybuffer_to_string(
   return uniffi_jsi::Bridging<std::string>::arraybuffer_to_string(rt, args[0]);
 }
 jsi::Value
-NativeFoobar::cpp_uniffi_internal_fn_method_binaryoperator_ffi__bless_pointer(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto pointer =
-      uniffi_jsi::Bridging<uint64_t>::fromJs(rt, callInvoker, args[0]);
-  auto static destructor = [](uint64_t p) {
-    auto pointer = reinterpret_cast<void *>(static_cast<uintptr_t>(p));
-    RustCallStatus status = {0};
-    uniffi_foobar_fn_free_binaryoperator(pointer, &status);
-  };
-  auto ptrObj =
-      std::make_shared<uniffi_jsi::DestructibleObject>(pointer, destructor);
-  auto obj = jsi::Object::createFromHostObject(rt, ptrObj);
-  return jsi::Value(rt, obj);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_internal_fn_method_calculator_ffi__bless_pointer(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto pointer =
-      uniffi_jsi::Bridging<uint64_t>::fromJs(rt, callInvoker, args[0]);
-  auto static destructor = [](uint64_t p) {
-    auto pointer = reinterpret_cast<void *>(static_cast<uintptr_t>(p));
-    RustCallStatus status = {0};
-    uniffi_foobar_fn_free_calculator(pointer, &status);
-  };
-  auto ptrObj =
-      std::make_shared<uniffi_jsi::DestructibleObject>(pointer, destructor);
-  auto obj = jsi::Object::createFromHostObject(rt, ptrObj);
-  return jsi::Value(rt, obj);
-}
-jsi::Value
 NativeFoobar::cpp_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
@@ -2671,154 +1940,8 @@ NativeFoobar::cpp_uniffi_internal_fn_method_convomanager_ffi__bless_pointer(
   auto obj = jsi::Object::createFromHostObject(rt, ptrObj);
   return jsi::Value(rt, obj);
 }
-jsi::Value
-NativeFoobar::cpp_uniffi_internal_fn_method_safeaddition_ffi__bless_pointer(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto pointer =
-      uniffi_jsi::Bridging<uint64_t>::fromJs(rt, callInvoker, args[0]);
-  auto static destructor = [](uint64_t p) {
-    auto pointer = reinterpret_cast<void *>(static_cast<uintptr_t>(p));
-    RustCallStatus status = {0};
-    uniffi_foobar_fn_free_safeaddition(pointer, &status);
-  };
-  auto ptrObj =
-      std::make_shared<uniffi_jsi::DestructibleObject>(pointer, destructor);
-  auto obj = jsi::Object::createFromHostObject(rt, ptrObj);
-  return jsi::Value(rt, obj);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_internal_fn_method_safedivision_ffi__bless_pointer(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto pointer =
-      uniffi_jsi::Bridging<uint64_t>::fromJs(rt, callInvoker, args[0]);
-  auto static destructor = [](uint64_t p) {
-    auto pointer = reinterpret_cast<void *>(static_cast<uintptr_t>(p));
-    RustCallStatus status = {0};
-    uniffi_foobar_fn_free_safedivision(pointer, &status);
-  };
-  auto ptrObj =
-      std::make_shared<uniffi_jsi::DestructibleObject>(pointer, destructor);
-  auto obj = jsi::Object::createFromHostObject(rt, ptrObj);
-  return jsi::Value(rt, obj);
-}
 
 // Methods calling directly into the uniffi generated C API of the Rust crate.
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_clone_binaryoperator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_clone_binaryoperator(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_free_binaryoperator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  uniffi_foobar_fn_free_binaryoperator(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return jsi::Value::undefined();
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_binaryoperator_perform(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_method_binaryoperator_perform(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[1]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[2]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<int64_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_clone_calculator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_clone_calculator(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_free_calculator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  uniffi_foobar_fn_free_calculator(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return jsi::Value::undefined();
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_constructor_calculator_new(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_constructor_calculator_new(&status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_calculator_calculate(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_method_calculator_calculate(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[1]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[2]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[3]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_calculator_calculate_more(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_method_calculator_calculate_more(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[1]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[2]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_calculator_last_result(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_method_calculator_last_result(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi::foobar::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
-}
 jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_clone_convomanager(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
@@ -2931,6 +2054,21 @@ NativeFoobar::cpp_uniffi_foobar_fn_method_convomanager_get_key_package(
   return uniffi::foobar::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
 }
 jsi::Value
+NativeFoobar::cpp_uniffi_foobar_fn_method_convomanager_get_partial_group(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  RustCallStatus status =
+      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
+  auto value = uniffi_foobar_fn_method_convomanager_get_partial_group(
+      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
+      uniffi::foobar::Bridging<RustBuffer>::fromJs(rt, callInvoker, args[1]),
+      &status);
+  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
+                                                       args[count - 1]);
+
+  return uniffi::foobar::Bridging<RustBuffer>::toJs(rt, callInvoker, value);
+}
+jsi::Value
 NativeFoobar::cpp_uniffi_foobar_fn_method_convomanager_process_message(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
@@ -2963,171 +2101,6 @@ NativeFoobar::cpp_uniffi_foobar_fn_method_convomanager_process_raw_invite(
                                                        args[count - 1]);
 
   return jsi::Value::undefined();
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_clone_safeaddition(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_clone_safeaddition(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_free_safeaddition(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  uniffi_foobar_fn_free_safeaddition(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return jsi::Value::undefined();
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_constructor_safeaddition_new(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_constructor_safeaddition_new(&status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_safeaddition_perform(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_method_safeaddition_perform(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[1]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[2]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<int64_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_clone_safedivision(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_clone_safedivision(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_free_safedivision(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  uniffi_foobar_fn_free_safedivision(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return jsi::Value::undefined();
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_constructor_safedivision_new(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_constructor_safedivision_new(&status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_method_safedivision_perform(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_method_safedivision_perform(
-      uniffi_jsi::Bridging<void *>::fromJs(rt, callInvoker, args[0]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[1]),
-      uniffi_jsi::Bridging<int64_t>::fromJs(rt, callInvoker, args[2]), &status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<int64_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_func_safe_addition_operator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_func_safe_addition_operator(&status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_fn_func_safe_division_operator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  RustCallStatus status =
-      uniffi::foobar::Bridging<RustCallStatus>::rustSuccess(rt);
-  auto value = uniffi_foobar_fn_func_safe_division_operator(&status);
-  uniffi::foobar::Bridging<RustCallStatus>::copyIntoJs(rt, callInvoker, status,
-                                                       args[count - 1]);
-
-  return uniffi_jsi::Bridging<void *>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_func_safe_addition_operator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_func_safe_addition_operator();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_func_safe_division_operator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_func_safe_division_operator();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_foobar_checksum_method_binaryoperator_perform(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_method_binaryoperator_perform();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_method_calculator_calculate(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_method_calculator_calculate();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_foobar_checksum_method_calculator_calculate_more(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_method_calculator_calculate_more();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_foobar_checksum_method_calculator_last_result(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_method_calculator_last_result();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
 jsi::Value
 NativeFoobar::cpp_uniffi_foobar_checksum_method_convomanager_create_invite(
@@ -3170,6 +2143,14 @@ NativeFoobar::cpp_uniffi_foobar_checksum_method_convomanager_get_key_package(
   return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
 jsi::Value
+NativeFoobar::cpp_uniffi_foobar_checksum_method_convomanager_get_partial_group(
+    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
+    size_t count) {
+  auto value = uniffi_foobar_checksum_method_convomanager_get_partial_group();
+
+  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
+}
+jsi::Value
 NativeFoobar::cpp_uniffi_foobar_checksum_method_convomanager_process_message(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
@@ -3185,48 +2166,11 @@ NativeFoobar::cpp_uniffi_foobar_checksum_method_convomanager_process_raw_invite(
 
   return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
-jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_method_safeaddition_perform(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_method_safeaddition_perform();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_method_safedivision_perform(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_method_safedivision_perform();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value NativeFoobar::cpp_uniffi_foobar_checksum_constructor_calculator_new(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_constructor_calculator_new();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
 jsi::Value
 NativeFoobar::cpp_uniffi_foobar_checksum_constructor_convomanager_new(
     jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
     size_t count) {
   auto value = uniffi_foobar_checksum_constructor_convomanager_new();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_foobar_checksum_constructor_safeaddition_new(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_constructor_safeaddition_new();
-
-  return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_foobar_checksum_constructor_safedivision_new(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  auto value = uniffi_foobar_checksum_constructor_safedivision_new();
 
   return uniffi_jsi::Bridging<uint16_t>::toJs(rt, callInvoker, value);
 }
@@ -3236,15 +2180,4 @@ jsi::Value NativeFoobar::cpp_ffi_foobar_uniffi_contract_version(
   auto value = ffi_foobar_uniffi_contract_version();
 
   return uniffi_jsi::Bridging<uint32_t>::toJs(rt, callInvoker, value);
-}
-jsi::Value
-NativeFoobar::cpp_uniffi_foobar_fn_init_callback_vtable_binaryoperator(
-    jsi::Runtime &rt, const jsi::Value &thisVal, const jsi::Value *args,
-    size_t count) {
-  static UniffiVTableCallbackInterfaceBinaryOperator vtableInstance =
-      uniffi::foobar::Bridging<
-          UniffiVTableCallbackInterfaceBinaryOperator>::fromJs(rt, callInvoker,
-                                                               args[0]);
-  uniffi_foobar_fn_init_callback_vtable_binaryoperator(&vtableInstance);
-  return jsi::Value::undefined();
 }
